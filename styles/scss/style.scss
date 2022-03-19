@@ -1,0 +1,278 @@
+// >----------------------------------------------------------------<
+// >                            IMPORT                              <
+// >----------------------------------------------------------------<
+
+@import "_nullstyle";
+
+
+
+
+// >----------------------------------------------------------------<
+// >                            MIXINS                              <
+// >----------------------------------------------------------------<
+
+@mixin bgImgSVG($img) { // image.svg
+    background-image: url("../../assets/svg/"+$img);
+}
+
+
+
+
+// >----------------------------------------------------------------<
+// >                              ROOT                              <
+// >----------------------------------------------------------------<
+
+:root {
+
+    // ^------------------------ size ------------------------
+    --size-w__block-container_desktop: 1240px; // block container --> 80px * 12 columns / gutter 24 px
+
+    --size-h__block-container-header_desktop: 72px;
+    --size-h__block-container-main_desktop: auto;
+    --size-h__block-container-footer_desktop: 160px;
+}
+
+
+
+
+// >----------------------------------------------------------------<
+// >                         START SETTINGS                         <
+// >----------------------------------------------------------------<
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; // ! why?????????
+    -webkit-tap-highlight-color: transparent; // disable blue tap for sensor device
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.pre__chords {
+    tab-size: 8; /* Установит размер таба в 4 пробела */
+}
+
+
+// ^------------------------ footer to buttom ------------------------
+
+.body{
+    &__container {
+        position: relative;
+        // min-height: min(100%, 100vh);
+        height: min(100%, 100vh);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        overflow-x: hidden;
+    }
+
+}
+
+
+
+
+// ^------------------------  ------------------------
+.body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: var(--color-0-0);
+    .main { flex: 1; }
+}
+
+// ^------------------------ block container ------------------------
+
+.container {
+    max-height: 100%;
+    margin: 0 10%;
+    max-width: var(--size-w__block-container_desktop);
+    height: 100%;
+
+    @media (max-width: 480px) { & {
+        margin: 0 5%;
+    } }
+}
+
+
+
+
+// >----------------------------------------------------------------<
+// >                             HEADER                             <
+// >----------------------------------------------------------------<
+
+.header {
+    // height: var(--size-h__block-container-header_desktop);
+    padding-top: var(--spacing-4); // 24
+    padding-bottom: var(--spacing-4); // 24
+    background-color: var(--color-0-1);
+    & .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+
+
+// >----------------------------------------------------------------<
+// >                              MAIN                              <
+// >----------------------------------------------------------------<
+
+.main {
+    height: var(--size-h__block-container-main_desktop);
+    background-color: var(--color-0-1);
+    & .container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--spacing-4); // 24
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.song-name {
+    text-align: center;
+}
+
+.song-chords {
+    // height: 0px;
+    padding-bottom: var(--spacing-5); // 36
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    // overflow: auto;
+    // flex: 1 1 auto;
+}
+
+
+
+.song-comments{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    // overflow: auto;
+    // background-color: red;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+
+
+// >----------------------------------------------------------------<
+// >                             FOOTER                             <
+// >----------------------------------------------------------------<
+
+.footer {
+    // height: var(--size-h__block-container-footer_desktop);
+    background-color: var(--color-0-1);
+    padding-bottom: var(--spacing-4); // 24
+    & .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 480px) { & {
+        padding-bottom: var(--spacing-2); // 24
+    } }
+}
+
+.song-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-3); // 16
+    &__structure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--spacing-6); // 48
+        padding-left: var(--spacing-3); // 16
+        padding-right: var(--spacing-3); // 16
+        border-radius: var(--radius-2);
+        border: solid var(--border-1) var(--color-0-4);
+    }
+    &__capo {
+        height: var(--spacing-6); // 48
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: var(--spacing-3); // 16
+        border-radius: var(--radius-2);
+        border: solid var(--border-1) var(--color-0-4);
+    }
+}
+
+.controls {
+    width: 100%;
+    padding-top: var(--spacing-3);
+    display: flex;
+    justify-content: space-between;
+}
+
+// .songlist-menu {
+//     background-color: red;
+//     width: 100%;
+//     height: 100%;
+//     z-index: var(--z-index-4);
+// }
+
+.transpose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__number {
+        min-width: 48px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+mark {
+    background-color: darkgrey;
+}
+
+.hide {
+    display: none;
+}
+
+
+.scroll {
+    &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+        border-radius: 1000px;
+        background-color: var(--color-0-0);
+
+        @media (max-width: 480px) { & {
+            width: 4px;
+            height: 4px;
+        } }
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 1000px;
+        background-color: var(--color-0-3);
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 1000px;
+        background-color: var(--color-0-0);
+    }
+}
