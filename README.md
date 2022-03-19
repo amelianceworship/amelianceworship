@@ -1,1 +1,1 @@
-amelianceworship.github.io
+https://amelianceworship.github.io
