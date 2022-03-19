@@ -1,0 +1,19 @@
+:root {
+
+}
+
+.blackout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    background-color: var(--color__blackout);
+    opacity: 0;
+    transition: opacity var(--time__short);
+    &.show{
+        opacity: var(--opacity__blackout);
+    }
+}

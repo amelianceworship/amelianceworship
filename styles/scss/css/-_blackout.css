@@ -1,0 +1,21 @@
+.blackout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: var(--color__blackout);
+  opacity: 0;
+  -webkit-transition: opacity var(--time__short);
+  -o-transition: opacity var(--time__short);
+  transition: opacity var(--time__short);
+}
+
+.blackout.show {
+  opacity: var(--opacity__blackout);
+}

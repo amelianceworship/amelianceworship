@@ -1,0 +1,121 @@
+:root {
+
+    --color__h1: var(--color-2-1);
+    --color__h2: var(--color-2-1);
+    --color__h3: var(--color-2-1);
+    --color__h4: var(--color-2-1);
+    --color__h5: var(--color-2-1);
+    --color__h6: var(--color-2-1);
+    --color__s1: var(--color-2-1);
+    --color__s2: var(--color-2-1);
+    --color__p1: var(--color-2-1);
+    --color__p2: var(--color-0-4);
+    --color__cp: var(--color-2-1);
+    --color__bt: var(--color-2-1);
+    --color__ov: var(--color-2-1);
+
+    --color__h1_inverse: var();
+    --color__h2_inverse: var();
+    --color__h3_inverse: var();
+    --color__h4_inverse: var();
+    --color__h5_inverse: var();
+    --color__h6_inverse: var();
+    --color__s1_inverse: var();
+    --color__s2_inverse: var();
+    --color__p1_inverse: var();
+    --color__p2_inverse: var();
+    --color__ct_inverse: var();
+    --color__bt_inverse: var();
+    --color__ov_inverse: var();
+}
+
+.h1 {
+    color: var(--color__h1);
+    &.inverse {
+        color: var(--color__h1_inverse);
+    }
+}
+
+.h2 {
+    color: var(--color__h2);
+    &.inverse {
+        color: var(--color__h2_inverse);
+    }
+}
+
+.h3 {
+    color: var(--color__h3);
+    &.inverse {
+        color: var(--color__h3_inverse);
+    }
+}
+
+.h4 {
+    color: var(--color__h4);
+    &.inverse {
+        color: var(--color__h4_inverse);
+    }
+}
+
+// .h5 {
+//     color: var(--color__h5);
+//     &.inverse {
+//         color: var(--color__h5_inverse);
+//     }
+// }
+
+// .h6 {
+//     color: var(--color__h6);
+//     &.inverse {
+//         color: var(--color__h6_inverse);
+//     }
+// }
+
+// .s1 {
+//     color: var(--color__s1);
+//     &.inverse {
+//         color: var(--color__s1_inverse);
+//     }
+// }
+
+// .s2 {
+//     color: var(--color__s2);
+//     &.inverse {
+//         color: var(--color__s2_inverse);
+//     }
+// }
+
+.p1 {
+    color: var(--color__p1);
+    &.inverse {
+        color: var(--color__p1_inverse);
+    }
+}
+
+.p2 {
+    color: var(--color__p2);
+    &.inverse {
+        color: var(--color__p2_inverse);
+    }
+}
+
+// .ct {
+//     color: var(--color__ct);
+//     &.inverse {
+//         color: var(--color__ct_inverse);
+//     }
+// }
+
+// .bt {
+//     color: var(--color__bt);
+//     &.inverse {
+//         color: var(--color__bt_inverse);
+//     }
+// }
+
+// .ov {
+//     color: var(--color__ov);
+//     &.inverse {
+//         color: var(--color__ov_inverse);
+//     }
+// }

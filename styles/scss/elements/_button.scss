@@ -1,0 +1,49 @@
+:root{
+    // ^-------------------------- buttons --------------------------
+    --button--primary__font-color_normal:   var(--color-2-1);
+    --button--primary__background_normal:   var(--color-0-3);
+    --button--primary__background_hover:    var(--color-0-4);
+    --button--primary__background_active:   var();
+    --button--primary__background_focus:    var();
+    --button--primary__background_disabled: var();
+    --button--primary__background_pressed:  var();
+    --button--primary__background_loading:  var();
+
+    --button--secondary__fontcolor_normal:    var();
+    --button--secondary__background_normal:   var();
+    --button--secondary__background_hover:    var();
+    --button--secondary__background_active:   var();
+    --button--secondary__background_focus:    var();
+    --button--secondary__background_disabled: var();
+    --button--secondary__background_pressed:  var();
+    --button--secondary__background_loading:  var();
+
+    --button--animation__duration: var(--time-2);
+    --button--animation__time-type: var(--animation-3);
+    --button--animation__delay: var(--time-1);
+
+    --button--padding__vertical: var(--spacing-1);
+    --button--padding__horizontal: var(--spacing-2);
+}
+
+.button {
+    padding: var(--button--padding__vertical) var(--button--padding__horizontal);
+    user-select: none;
+    border-radius: 8px;
+    height: 48px;
+    min-width: 48px;
+
+    // &__primary {
+        color: var(--button--primary__font-color_normal);
+        background-color: var(--button--primary__background_normal);
+        @media (hover: hover) {
+            &:hover {
+                transition: all var(--button--animation__duration) var(--button--animation__time-type);
+                background-color: var(--button--primary__background_hover);
+            }
+        }
+
+    // &__secondary {
+
+    // }
+}

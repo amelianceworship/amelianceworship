@@ -1,0 +1,122 @@
+:root {
+
+    --menu-list--padding__outer: var(--spacing-5);
+    --menu-list--padding__inner: var(--spacing-3);
+    --menu-list--gap: var(--spacing-3);
+    // --menu-list--border-radius: var(--radius-3);
+
+    --menu-list--color__bg: var(--color-0-2);
+
+    --menu-list--color: var(--color-2-0);
+    --menu-list--color_hover: var(--color-2-2);
+
+    --menu-list--animation__duration: var(--time-3);
+    --menu-list--animation__time-type: var(--animation-3);
+    --menu-list--animation__delay: var(--time-1);
+
+    --menu-list--z-index: var(--z-index-4);
+}
+
+.menu-list {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: var(--menu-list--z-index);
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: end;
+    width: 100vw;
+    height: min(100%, 100vh);
+    padding: var(--menu-list--padding__outer);
+    overflow: hidden;
+    background-color: var(--menu-list--color__bg);
+    opacity: 0%;
+    transition: right var(--menu-list--animation__duration) var(--menu-list--animation__time-type),
+                opacity var(--menu-list--animation__duration) var(--menu-list--animation__delay);
+
+    @media (max-width: 480px) { & {
+        padding: 16px;
+    } }
+    // justify-content: center;
+    // border-radius: var(--menu-list--border-radius);
+    // transform: scale(0.0);
+    &.show {
+        // transform: scale(1);
+        right: 0%;
+        opacity: 100%;
+    }
+
+     // ^------------------------ Container ------------------------
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding-bottom: 16px;
+        // margin: 0 10%;
+        margin-right: calc(10% - var(--spacing-2));
+        width: min(80%, 500px);
+        height: calc(100% - 36px);
+        @media (max-width: 480px) { & {
+            margin: 0 auto;
+            width: min(100%, 500px);
+        } }
+
+    }
+
+
+    // ^------------------------ Title ------------------------
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+
+    // ^------------------------ Items Block ------------------------
+
+    &__items-container {
+        padding-right: var(--spacing-5);
+        height: 200px;
+        // height: calc(100vh - 128px);
+        // height: 500px;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        // justify-content: end;
+        gap: var(--menu-list--gap);
+        // overflow: auto;
+        // overflow-x: scroll;
+        overflow: auto;
+        // overflow-y: scroll;
+
+
+        // ^------------------------ Item ------------------------
+
+        &__item {
+            color: var(--menu-list--color);
+            cursor: pointer;
+            @media (hover: hover) {
+                &:hover {
+                    transition: all var(--menu-list--animation__duration) var(--menu-list--animation__time-type);
+                    color: var(--menu-list--color_hover);
+
+                }
+            }
+        }
+    }
+
+
+
+    // ^------------------------ Search ------------------------
+
+    .search {
+        // margin-top: 18px;
+        height: 32px;
+        border-radius: 1000px;
+        width: 80%;
+        padding: 4px 8px;
+    }
+
+
+}

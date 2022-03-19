@@ -1,0 +1,23 @@
+:root {
+
+}
+
+.link {
+    color: var(--color__link);
+    text-decoration: none;
+    @media (hover: hover) {
+        &:hover {
+            transition: all var(--time__medium) var(--animation__standart);
+            color: var(--color__link-hover);
+        }
+    }
+    // &.inverse {
+    //     color: var(--color__ov_inverse);
+        // @media (hover: hover) {
+        //     &:hover {
+        //         transition: all var(--time__medium) var(--animation__standart);
+        //         color: var(--color__link-hover);
+        //     }
+        // }
+    // }
+}

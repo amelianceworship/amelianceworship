@@ -1,0 +1,74 @@
+:root {
+
+    // ^------------------------ Padding ------------------------
+
+    --spacing-0: 0px;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 16px;
+    --spacing-4: 24px;
+    --spacing-5: 32px;
+    --spacing-6: 48px;
+    --spacing-7: 64px;
+    --spacing-8: 80px;
+    --spacing-9: 120px;
+    --spacing-10: 160px;
+
+
+
+    // ^------------------------ Radius ------------------------
+
+    --radius-0: 0px;
+    --radius-1: 4px;
+    --radius-2: 8px;
+    --radius-3: 16px;
+    --radius-4: 32px;
+
+
+
+    // ^------------------------ Border ------------------------
+
+    --border-0: 0px;
+    --border-1: 1px;
+    --border-2: 2px;
+    --border-3: 4px;
+    --border-4: 8px;
+
+
+
+    // ^------------------------ Z-index ------------------------
+
+    --z-index-bottom: -1000;
+    --z-index-0: 0;
+    --z-index-1: 10;
+    --z-index-2: 20;
+    --z-index-3: 30;
+    --z-index-4: 40; /*.songlist-menu, */
+    --z-index-5: 50; /*'menu icons' */
+    --z-index-top: 1000;
+
+
+
+    // ^------------------------ Time ------------------------
+
+    --time-0: 0s;
+    --time-1: 100ms;
+    --time-2: 200ms;
+    --time-3: 300ms;
+    --time-4: 400ms;
+    --time-5: 500ms;
+    --time-6: 1s;
+
+
+
+    // ^------------------------ Animatiom ------------------------
+
+    --animation-0: ease;
+    --animation-1: ease-in;
+    --animation-2: ease-out;
+    --animation-3: ease-in-out;
+    --animation-4: linear;
+    --animation-5: step-start;
+    --animation-6: step-end;
+    --animation-bz-1: cubic-bezier(.45, .15, .70, 1.4);
+}
