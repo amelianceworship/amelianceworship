@@ -1,5 +1,6 @@
 'use strict';
-import {menu}                  from './menu.js';
+import {Button}                 from './Button.js';
+import {menu}                   from './menu.js';
 import {popup}                  from './popup.js';
 import {blackout}               from './blackout.js';
 import {createHTMLElem}         from './createHTMLElem.js';
@@ -17,6 +18,7 @@ import {sortAB} from './sortAB.js';
 // asm.nov = 'let';
 
 export {
+    Button,
     menu,
     popup,
     blackout,
