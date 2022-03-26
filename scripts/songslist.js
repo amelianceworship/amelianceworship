@@ -1,9 +1,10 @@
-'use strict';;
+'use strict';
 import {
     msg as Msg,
     createHTMLElem,
-    Button
+    // Button
 } from './modules/asm.js';
+import { Button } from './modules/asm.js';
 // import * as asm from 'ASM_js-unctions.js';
 
 
