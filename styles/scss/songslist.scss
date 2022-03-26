@@ -91,7 +91,7 @@ html {
 
 .header {
     height: var(--size-h__block-container-header_desktop);
-    background-color: var(--color-0-2);
+    background-color: var(--color-0-1);
     & .container {
         max-width: var(--size-w__block-container_desktop);
         height: 100%;
@@ -120,7 +120,7 @@ html {
 
 .main {
     height: var(--size-h__block-container-main_desktop);
-    background-color: var(--color-0-1);
+    background-color: var(--color-0-0);
     & .container {
         max-width: var(--size-w__block-container_desktop);
         height: 100%;
@@ -149,7 +149,7 @@ html {
 .list-letters__letter{
     padding-top: 8px;
     padding-bottom: 8px;
-    opacity: 30%;
+    color: var(--color-2-3);
 }
 
 
