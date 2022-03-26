@@ -1,9 +1,10 @@
-'use strict';;
+'use strict';
 import {
     msg as Msg,
     createHTMLElem,
-    Button
+    // Button
 } from './modules/asm.js';
+import { Button } from './modules/asm.js';
 // import * as asm from 'ASM_js-unctions.js';
 
 
@@ -113,9 +114,13 @@ const createPage = (data) => {
     const button = new Button({
         style: ['fill', 'big'],
     });
-    button.create('◄', 'list-name__left', '', listName);
+
+    const alertTryLater = () => {
+        alert('Ця функція знаходиться в розробці, спробуйте пізніше');
+    };
+    button.create('◄', 'list-name__left', alertTryLater, listName);
     createHTMLElem(listName, 'h4', ['h4', 'list__song-item'], 'Загальний Список');
-    button.create('►', 'list-name__right', '', listName);
+    button.create('►', 'list-name__right', alertTryLater, listName);
 
     // <p class="p1 list-name__left">←</p>
     // <h4 class="h4 list-name__title">Загальний Список</h4>
