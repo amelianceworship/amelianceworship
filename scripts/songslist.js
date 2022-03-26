@@ -11,7 +11,7 @@ import {
 // const sheetTitle = 'Ameliance Worship API';
 
 const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
-const sheetTitle = '✅ Загальний Список';
+const sheetTitle = 'Загальний Список';
 const sheetTitles = [
     '✅ Загальний Список',
     '⏳ Вивчити/Зробити',
@@ -116,33 +116,33 @@ async function getGoogleSheetsData(sheetID, sheetTitle, sheetRange) {
 // >----------------------------------------------------------------<
 
 const createPage = (data, sheetTitle) => {
-    Msg(data)
+
     const main = document.querySelector('.main .container');
+    const header = document.querySelector('.header .container');
     const listTest = document.querySelector('.list');
-    const listSheetTitle = document.querySelector('.list__sheet-title');
-    const listNameLeft = document.querySelector('.list-name__left');
-    const listNameRight = document.querySelector('.list-name__right');
+    const listNameCheck = document.querySelector('.list-name');
     if (listTest) listTest.remove();
-    if (listSheetTitle) listSheetTitle.remove();
-    if (listNameLeft) listNameLeft.remove();
-    if (listNameRight) listNameRight.remove();
+    if (listNameCheck) listNameCheck.remove();
 
     const list = createHTMLElem(main, 'div', ['list']);
 
 
-    const listName = document.querySelector('.list-name');
     const button = new Button({
-        style: ['icon', 'big'],
+        style: ['icon', 'medium'],
     });
 
     const alertTryLater = () => {
         alert('Сорі, ще не робить, спробуйте пізніше');
     };
 
+    const listName = createHTMLElem(header, 'div', ['list-name']);
+    // const listName = document.querySelector('.list-name');
 
-    button.create(listName, ['list-name__left'], '◄', selectPrevList);
+    // sheetTitle = sheetTitle.slice(2);
     createHTMLElem(listName, 'h1', ['h1', 'list__sheet-title'], sheetTitle);
-    button.create(listName, ['list-name__right'], '►', selectNextList);
+    const listNavigation = createHTMLElem(listName, 'div', ['list__navigation']);
+    button.create(listNavigation, ['list-name__left'], '◄', selectPrevList);
+    button.create(listNavigation, ['list-name__right'], '►', selectNextList);
 
     const songs = data[data.length-1];
 
@@ -165,15 +165,23 @@ const selectPrevList = () => {
     const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
     const sheetRange = '';
     const sheetTitles = [
-        '✅ Загальний Список',
-        '⏳ Вивчити/Зробити',
-        '🌠 Різдво',
-        '🙌🏻 Пасха',
-        '♻️ Відкласти на час'
+        'Загальний Список',
+        'Вивчити/Зробити',
+        'Різдво',
+        'Пасха',
+        'Відкласти на час'
     ];
     const listSheetTitle = document.querySelector('.list__sheet-title');
     const title =  listSheetTitle.innerText;
-    const currIndex = sheetTitles.indexOf(title);
+    let currentTitle = '';
+    for (const item of sheetTitles) {
+        let result = item.search(title);
+        if (result > -1) {
+            currentTitle = item;
+            break;
+        }
+    }
+    const currIndex = sheetTitles.indexOf(currentTitle);
     let index = currIndex-1;
     if (index < 0) index = sheetTitles.length - 1;
 
@@ -184,15 +192,23 @@ const selectNextList = () => {
     const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
     const sheetRange = '';
     const sheetTitles = [
-        '✅ Загальний Список',
-        '⏳ Вивчити/Зробити',
-        '🌠 Різдво',
-        '🙌🏻 Пасха',
-        '♻️ Відкласти на час'
+        'Загальний Список',
+        'Вивчити/Зробити',
+        'Різдво',
+        'Пасха',
+        'Відкласти на час'
     ];
     const listSheetTitle = document.querySelector('.list__sheet-title');
     const title =  listSheetTitle.innerText;
-    const currIndex = sheetTitles.indexOf(title);
+    let currentTitle = '';
+    for (const item of sheetTitles) {
+        let result = item.search(title);
+        if (result > -1) {
+            currentTitle = item;
+            break;
+        }
+    }
+    const currIndex = sheetTitles.indexOf(currentTitle);
     let index = currIndex+1;
     if (index > sheetTitles.length - 1) index = 0;
 
