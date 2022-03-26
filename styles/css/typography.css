@@ -37,7 +37,7 @@
   --font__line-height_h4: 150%;
   --font__font-family_h6: var(--font-family__secondary);
   --font__font-size_h6: 16px;
-  --font__font-weight_h6: var(--font-weight__bold);
+  --font__font-weight_h6: var(--font-weight__regular);
   --font__line-height_h6: 150%;
   --font__font-family_p1: var(--font-family__secondary);
   --font__font-size_p1: 16px;

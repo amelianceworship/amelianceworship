@@ -131,33 +131,32 @@ html {
         padding-bottom: 16px;
         padding-left: 16px;
         padding-right: 16px;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
     }
 }
 
-// .list {
-//     height: 100%;
-//     display: flex;
-//     // flex-direction: column;
-//     // align-items: center;
-// }
-.list__letters {
+.list {
     height: 100%;
     display: flex;
     flex-direction: column;
+    // flex-direction: column;
     // align-items: center;
-    .list-letters__letter{
-        padding-bottom: 8px;
-    }
 }
-.list__titles {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    // align-items: center;
-    .list__song-title {
-        padding-bottom: 8px;
-    }
+
+.list-letters__letter{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    opacity: 30%;
 }
+
+
+.list__song-title {
+    padding-bottom: 8px;
+}
+
 
 
 

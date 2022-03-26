@@ -128,24 +128,35 @@ const createPage = (data) => {
     const headerLetters = data[0];
     const songs = data[1];
 
-    const list = document.querySelector('.main .container');
-    const listLetters = createHTMLElem(list, 'div', ['list__letters']);
-    const listTitles = createHTMLElem(list, 'div', ['list__titles']);
+    const main = document.querySelector('.main .container');
+    const list = createHTMLElem(main, 'div', ['list']);
 
     // const listLetters = document.querySelector('.list-letters');
     // const listLetters = createHTMLElem(list, 'div', ['list-letters']);
 
-    for (const letter of headerLetters) {
-        // let songItem = createHTMLElem(listLetters, 'div', ['list__song-item']);
+    // for (const letter of headerLetters) {
+    //     // let songItem = createHTMLElem(listLetters, 'div', ['list__song-item']);
 
-        // createHTMLElem(listLetters, 'pre', ['p1', 'list-letters__letter'], letter);
-        // const char  = letter || ' ';
-        const preElem = createHTMLElem(listLetters, 'pre', ['pre']);
-        createHTMLElem(preElem, 'h6', ['h6', 'list-letters__letter'], letter + '    ');
-    }
+    //     // createHTMLElem(listLetters, 'pre', ['p1', 'list-letters__letter'], letter);
+    //     // const char  = letter || ' ';
+    //     // const preElem = createHTMLElem(listLetters, 'pre', ['pre']);
+    //     createHTMLElem(listLetters, 'h6', ['h6', 'list-letters__letter'], letter + '    ');
+    // }
 
-    for (const song of songs) {
-        createHTMLElem(listTitles, 'p', ['p1', 'list__song-title'], song);
+    // for (const song of songs) {
+    //     // const preElem = createHTMLElem(listTitles, 'pre', ['pre']);
+    //     createHTMLElem(listTitles, 'p', ['p1', 'list__song-title'], song);
+    // }
+
+    for (let i = 0; i < songs.length; i++) {
+
+        const letter = headerLetters[i];
+        if (letter) {
+            createHTMLElem(list, 'h4', ['h4', 'list-letters__letter'], letter);
+        }
+
+        const song = songs[i];
+        createHTMLElem(list, 'p', ['p1', 'list__song-title'], song);
     }
 
 };
