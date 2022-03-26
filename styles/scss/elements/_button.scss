@@ -35,7 +35,7 @@
 // >----------------------------------------------------------------<
 
 // Edit this file for change style
-@use "configs/cf-buttons" as *;
+@use "configs/cf-Button" as *;
 
 
 // >----------------------------------------------------------------<
@@ -84,7 +84,7 @@
 
             & .icon {
                 background-color: $icon__color_hover;
-                mask-image: $icon__url_hover;
+                // mask-image: none;
                 transition: all var(--button--animation__duration) var(--button--animation__time-type);
             }
         }
@@ -244,7 +244,7 @@
     // ^------------------------ Icons Style ------------------------
 
     .icon {
-        mask-image: $icon__url;
+        // mask-image: none;
         mask-repeat: no-repeat;
 
         width: var(--icon--size);

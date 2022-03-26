@@ -8,7 +8,7 @@
   --color__s1: var(--color-2-1);
   --color__s2: var(--color-2-1);
   --color__p1: var(--color-2-1);
-  --color__p2: var(--color-0-4);
+  --color__p2: var(--color-2-3);
   --color__cp: var(--color-2-1);
   --color__bt: var(--color-2-1);
   --color__ov: var(--color-2-1);
@@ -224,8 +224,6 @@
   }
   .button__fill:hover .icon {
     background-color: var(--button-fill--icon__color_hover);
-    -webkit-mask-image: url("./../../assets/svg/image-24.svg");
-            mask-image: url("./../../assets/svg/image-24.svg");
     -webkit-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     -o-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     transition: all var(--button--animation__duration) var(--button--animation__time-type);
@@ -292,8 +290,6 @@
   }
   .button__outline:hover .icon {
     background-color: var(--button-outline--icon__color_hover);
-    -webkit-mask-image: url("./../../assets/svg/image-24.svg");
-            mask-image: url("./../../assets/svg/image-24.svg");
     -webkit-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     -o-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     transition: all var(--button--animation__duration) var(--button--animation__time-type);
@@ -360,8 +356,6 @@
   }
   .button__text:hover .icon {
     background-color: var(--button-text--icon__color_hover);
-    -webkit-mask-image: url("./../../assets/svg/image-24.svg");
-            mask-image: url("./../../assets/svg/image-24.svg");
     -webkit-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     -o-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     transition: all var(--button--animation__duration) var(--button--animation__time-type);
@@ -405,8 +399,6 @@
   text-decoration-thickness: var(--button-text--border__width);
 }
 .button .icon {
-  -webkit-mask-image: url("./../../assets/svg/image-24.svg");
-          mask-image: url("./../../assets/svg/image-24.svg");
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   width: var(--icon--size);
@@ -449,8 +441,6 @@
   }
   .button__icon:hover .icon {
     background-color: var(--button-icon--icon__color_hover);
-    -webkit-mask-image: url("./../../assets/svg/image-24.svg");
-            mask-image: url("./../../assets/svg/image-24.svg");
     -webkit-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     -o-transition: all var(--button--animation__duration) var(--button--animation__time-type);
     transition: all var(--button--animation__duration) var(--button--animation__time-type);

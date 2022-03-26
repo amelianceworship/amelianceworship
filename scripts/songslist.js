@@ -115,47 +115,27 @@ const createPage = (data) => {
     });
 
     const alertTryLater = () => {
-        alert('Ця функція знаходиться в розробці, спробуйте пізніше');
+        alert('Сорі, ще не робить, спробуйте пізніше');
     };
-    button.create('◄', 'list-name__left', alertTryLater, listName);
-    createHTMLElem(listName, 'h1', ['h1', 'list__song-item'], 'ЗАГАЛЬНИЙ СПИСОК');
-    button.create('►', 'list-name__right', alertTryLater, listName);
 
-    // <p class="p1 list-name__left">←</p>
-    // <h4 class="h4 list-name__title">Загальний Список</h4>
-    // <p class="p1 list-name__right">→</p>
-    // create(btnLabel, btnUnicClass, btnAction, btnParent, btnStyle)
-    const headerLetters = data[0];
+    button.create(listName, 'list-name__left', '◄', alertTryLater);
+    createHTMLElem(listName, 'h1', ['h1', 'list__song-item'], 'Загальний список');
+    button.create(listName, 'list-name__right', '►', alertTryLater);
+
     const songs = data[1];
 
     const main = document.querySelector('.main .container');
     const list = createHTMLElem(main, 'div', ['list']);
 
-    // const listLetters = document.querySelector('.list-letters');
-    // const listLetters = createHTMLElem(list, 'div', ['list-letters']);
-
-    // for (const letter of headerLetters) {
-    //     // let songItem = createHTMLElem(listLetters, 'div', ['list__song-item']);
-
-    //     // createHTMLElem(listLetters, 'pre', ['p1', 'list-letters__letter'], letter);
-    //     // const char  = letter || ' ';
-    //     // const preElem = createHTMLElem(listLetters, 'pre', ['pre']);
-    //     createHTMLElem(listLetters, 'h6', ['h6', 'list-letters__letter'], letter + '    ');
-    // }
-
-    // for (const song of songs) {
-    //     // const preElem = createHTMLElem(listTitles, 'pre', ['pre']);
-    //     createHTMLElem(listTitles, 'p', ['p1', 'list__song-title'], song);
-    // }
-
+    let lastLetter = '';
     for (let i = 0; i < songs.length; i++) {
+        const song = songs[i];
 
-        const letter = headerLetters[i];
-        if (letter) {
-            createHTMLElem(list, 'h3', ['h3', 'list-letters__letter'], letter);
+        if (lastLetter !== song[0]) {
+            createHTMLElem(list, 'h3', ['h3', 'list-letters__letter'], song[0]);
+            lastLetter = song[0];
         }
 
-        const song = songs[i];
         createHTMLElem(list, 'p', ['p1', 'list__song-title'], song);
     }
 
