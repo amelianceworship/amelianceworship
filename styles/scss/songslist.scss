@@ -110,25 +110,28 @@ html {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .list__song-item {
+    padding: 16px 0;
+    .list__sheet-title {
+        padding: 8px 24px;
+        border: 1px solid var(--color-2-3);
+        border-radius: 1000px;
         font-size: 48px;
         height: 100%;
         font-family: var(--font-family__primary);
-        padding: 24px 8px;
         @media (max-width: 920px) {
 
-            font-size: 28px;
+            font-size: 18px;
         }
     }
 }
 
-.divider {
-    display: flex;
-    height: 2px;
-    width: 100%;
-    background-color: var(--color-0-3);
-    // background-color: red;
-}
+// .divider {
+//     display: flex;
+//     height: 2px;
+//     width: 100%;
+//     background-color: var(--color-0-3);
+//     // background-color: red;
+// }
 
 
 
