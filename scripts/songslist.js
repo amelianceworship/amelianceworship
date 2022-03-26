@@ -118,7 +118,7 @@ const createPage = (data) => {
         alert('Ця функція знаходиться в розробці, спробуйте пізніше');
     };
     button.create('◄', 'list-name__left', alertTryLater, listName);
-    createHTMLElem(listName, 'h4', ['h4', 'list__song-item'], 'Загальний Список');
+    createHTMLElem(listName, 'h1', ['h1', 'list__song-item'], 'ЗАГАЛЬНИЙ СПИСОК');
     button.create('►', 'list-name__right', alertTryLater, listName);
 
     // <p class="p1 list-name__left">←</p>
@@ -152,7 +152,7 @@ const createPage = (data) => {
 
         const letter = headerLetters[i];
         if (letter) {
-            createHTMLElem(list, 'h4', ['h4', 'list-letters__letter'], letter);
+            createHTMLElem(list, 'h3', ['h3', 'list-letters__letter'], letter);
         }
 
         const song = songs[i];

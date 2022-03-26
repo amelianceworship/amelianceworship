@@ -138,7 +138,6 @@ html {
 }
 
 .header {
-  height: var(--size-h__block-container-header_desktop);
   background-color: var(--color-0-1);
 }
 .header .container {
@@ -156,8 +155,6 @@ html {
 }
 
 .list-name {
-  padding-top: 12px;
-  padding-bottom: 12px;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -168,6 +165,18 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.list-name .list__song-item {
+  font-size: 48px;
+  height: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-family: var(--font-family__secondary);
+}
+@media (max-width: 920px) {
+  .list-name .list__song-item {
+    font-size: 22px;
+  }
 }
 
 .main {
