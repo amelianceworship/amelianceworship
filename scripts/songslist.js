@@ -184,11 +184,11 @@ const selectNextList = () => {
     const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
     const sheetRange = '';
     const sheetTitles = [
-        '✅Загальний Список',
-        '⏳Вивчити/Зробити',
-        '🌠Різдво',
-        '🙌🏻Пасха',
-        '♻️Відкласти на час'
+        '✅ Загальний Список',
+        '⏳ Вивчити/Зробити',
+        '🌠 Різдво',
+        '🙌🏻 Пасха',
+        '♻️ Відкласти на час'
     ];
     const listSheetTitle = document.querySelector('.list__sheet-title');
     const title =  listSheetTitle.innerText;
