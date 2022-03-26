@@ -191,8 +191,13 @@ html {
   padding-left: 16px;
   padding-right: 16px;
 }
+@media (max-width: 1024px) {
+  .main .container {
+    width: 100%;
+  }
+}
 
-.list__letters {
+.list {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,21 +207,14 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.list__letters .list-letters__letter {
+
+.list-letters__letter {
+  padding-top: 8px;
   padding-bottom: 8px;
+  opacity: 30%;
 }
 
-.list__titles {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.list__titles .list__song-title {
+.list__song-title {
   padding-bottom: 8px;
 }
 
