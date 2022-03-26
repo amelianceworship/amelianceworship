@@ -90,7 +90,7 @@ html {
 // >----------------------------------------------------------------<
 
 .header {
-    height: var(--size-h__block-container-header_desktop);
+    // min-height: var(--size-h__block-container-header_desktop);
     background-color: var(--color-0-1);
     & .container {
         max-width: var(--size-w__block-container_desktop);
@@ -102,13 +102,24 @@ html {
 }
 
 .list-name {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    // padding-top: 24px;
+    // padding-bottom: 24px;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    .list__song-item {
+        font-size: 48px;
+        height: 100%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        font-family: var(--font-family__secondary);
+        @media (max-width: 920px) {
+
+            font-size: 22px;
+        }
+    }
 }
 
 
@@ -150,6 +161,9 @@ html {
     padding-top: 8px;
     padding-bottom: 8px;
     color: var(--color-2-3);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-0-0);
 }
 
 

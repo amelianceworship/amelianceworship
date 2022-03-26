@@ -1,22 +1,6 @@
 // >----------------------------------------------------------------<
-// >                           VARIBLES                             <
-// >----------------------------------------------------------------<
-$font-primary__path: "../../assets/fonts/YesevaOne/";
-$font-secondary__path: "../../assets/fonts/Montserrat/static/";
-$font-tertiary__path: "../../assets/fonts/Noto/static/NotoSansMono/";
-$font-primary__family-name: "Yeseva One";
-$font-secondary__family-name: "Montserrat";
-$font-tertiary__family-name: "Noto";
-
-// >----------------------------------------------------------------<
 // >                            MIXINS                              <
 // >----------------------------------------------------------------<
-
-@mixin initFont($font-family-name, $font-path, $font-family-file, $font-weight) {
-    font-family: $font-family-name;
-    src: url($font-path + $font-family-file);
-    font-weight: $font-weight;
-}
 
 @mixin setFont($font-family, $font-size, $font-line-height, $font-weight) {
     font-family: $font-family;
@@ -26,31 +10,58 @@ $font-tertiary__family-name: "Noto";
 }
 
 
+
+
 // >----------------------------------------------------------------<
 // >                            FONTS                               <
 // >----------------------------------------------------------------<
 
-@font-face { @include initFont($font-primary__family-name, $font-primary__path, "YesevaOne-Regular.ttf", 400) }
+// @font-face { // black
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Black.ttf");
+//     font-weight: 900;
+// }
+// @font-face { // heavy
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-ExtraBold.ttf");
+//     font-weight: 800;
+// }
+@font-face { // bold
+    font-family: "Noto";
+    src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Bold.ttf");
+    font-weight: 700;
+}
+// @font-face { // semibold
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-SemiBold.ttf");
+//     font-weight: 600;
+// }
+// @font-face { // medium
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Medium.ttf");
+//     font-weight: 500;
+// }
+@font-face { // regular
+    font-family: "Noto";
+    src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Regular.ttf");
+    font-weight: 400;
+}
+@font-face { // light
+    font-family: "Noto";
+    src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Light.ttf");
+    font-weight: 300;
+}
+// @font-face { // exthra light
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-ExtraLight.ttf");
+//     font-weight: 200;
+// }
+// @font-face { // thin
+//     font-family: "Noto";
+//     src: url("../../assets/fonts/Noto/static/NotoSansMono/NotoSansMono-Thin.ttf");
+//     font-weight: 100;
+// }
 
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Black.ttf", 900) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-ExtraBold.ttf", 800) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Bold.ttf", 700) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-SemiBold.ttf", 600) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Medium.ttf", 500) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Regular.ttf", 400) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Light.ttf", 300) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-ExtraLight.ttf", 200) }
-@font-face { @include initFont($font-secondary__family-name, $font-secondary__path, "Montserrat-Thin.ttf", 100) }
-
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Black.ttf", 900) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-ExtraBold.ttf", 800) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Bold.ttf", 700) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-SemiBold.ttf", 600) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Medium.ttf", 500) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Regular.ttf", 400) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Light.ttf", 300) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-ExtraLight.ttf", 200) }
-@font-face { @include initFont($font-tertiary__family-name, $font-tertiary__path, "NotoSansMono-Thin.ttf", 100) }
 
 
 
@@ -63,29 +74,22 @@ $font-tertiary__family-name: "Noto";
 
     // ^------------------------ fonts varibles ------------------------
 
-    --font-family__prime:           "Yeseve One", serif;
-    --font-family__secondary:       "Montserrat", system-ui;
-    --font-family__tertiary:        "Noto", monospace;
+    --font-family__prime:           "Yeseva One", serif;
+    --font-family__secondary:       "Noto", sans-serif;
 
-    --font-weight__black:       900;
-    --font-weight__extra-bold:  800;
-    --font-weight__bold:        700;
-    --font-weight__semi-bold:   600;
-    --font-weight__medium:      500;
-    --font-weight__regular:     400;
-    --font-weight__light:       300;
-    --font-weight__extra-light: 200;
-    --font-weight__thin:        100;
+    --font-weight__bold:     700;
+    --font-weight__regular:  400;
+    --font-weight__light:    300;
 
 
     // ^------------------------ text ------------------------
 
     --font__font-family_h1: var(--font-family__prime);       // header 1
     --font__font-size_h1: 72px;
-    --font__font-weight_h1: var(--font-weight__bold);
+    --font__font-weight_h1: var(--font-weight__regular);
     --font__line-height_h1: 150%;
 
-    --font__font-family_h2: var(--font-family__secondary);   // header 2
+    --font__font-family_h2: var(--font-family__prime);   // header 2
     --font__font-size_h2: 48px;
     --font__font-weight_h2: var(--font-weight__bold);
     --font__line-height_h2: 150%;
@@ -105,10 +109,10 @@ $font-tertiary__family-name: "Noto";
     // --font__font-weight_h5: var(--font-weight__regular);
     // --font__line-height_h5: 150%;
 
-    // --font__font-family_h6: var(--font-family__secondary);   // header 6
-    // --font__font-size_h6: 16px;
-    // --font__font-weight_h6: var(--font-weight__bold);
-    // --font__line-height_h6: 150%;
+    --font__font-family_h6: var(--font-family__secondary);   // header 6
+    --font__font-size_h6: 16px;
+    --font__font-weight_h6: var(--font-weight__regular);
+    --font__line-height_h6: 150%;
 
     // --font__font-family-s1: var(--font-family__secondary);   // subtitle 1
     // --font__font-size_s1: ;
@@ -121,7 +125,7 @@ $font-tertiary__family-name: "Noto";
     // --font__line-height-s2: ;
 
     --font__font-family_p1: var(--font-family__secondary);   // body 1
-    --font__font-size_p1: 18px;
+    --font__font-size_p1: 16px;
     --font__font-weight_p1: var(--font-weight__regular);
     --font__line-height_p1: 150%;
 
@@ -135,10 +139,10 @@ $font-tertiary__family-name: "Noto";
     // --font__font-weight_ct: ;
     // --font__line-height_ct: ;
 
-    // --font__font-family_bt: var(--font-family__secondary);   // button
-    // --font__font-size_bt: ;
-    // --font__font-weight_bt: ;
-    // --font__line-height_bt: ;
+    --font__font-family_bt: var(--font-family__secondary);   // button
+    --font__font-size_bt: 16px;
+    --font__font-weight_bt: var(--font-weight__regular);
+    --font__line-height_bt: 150%;
 
     // --font__font-family-ov: var(--font-family__secondary);   // overline
     // --font__font-size_ov: ;
@@ -188,12 +192,12 @@ $font-tertiary__family-name: "Noto";
 //                         var(--font__font-weight_h5));
 // }
 
-// .h6 {
-//     @include setFont(   var(--font__font-family_h6),
-//                         var(--font__font-size_h6),
-//                         var(--font__line-height_h6),
-//                         var(--font__font-weight_h6));
-// }
+.h6 {
+    @include setFont(   var(--font__font-family_h6),
+                        var(--font__font-size_h6),
+                        var(--font__line-height_h6),
+                        var(--font__font-weight_h6));
+}
 
 // .s1 {
 //     @include setFont(   var(--font__font-family_p1),
@@ -230,12 +234,12 @@ $font-tertiary__family-name: "Noto";
 //                         var(--font__font-weight_ct));
 // }
 
-// .bt {
-//     @include setFont(   var(--font__font-family_bt),
-//                         var(--font__font-size_bt),
-//                         var(--font__line-height_bt),
-//                         var(--font__font-weight_bt));
-// }
+.button {
+    @include setFont(   var(--font__font-family_bt),
+                        var(--font__font-size_bt),
+                        var(--font__line-height_bt),
+                        var(--font__font-weight_bt));
+}
 
 // .ov {
 //     @include setFont(   var(--font__font-family_ov),
