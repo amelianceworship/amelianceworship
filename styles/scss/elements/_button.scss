@@ -1,49 +1,289 @@
-:root{
-    // ^-------------------------- buttons --------------------------
-    --button--primary__font-color_normal:   var(--color-2-1);
-    --button--primary__background_normal:   var(--color-0-3);
-    --button--primary__background_hover:    var(--color-0-4);
-    --button--primary__background_active:   var();
-    --button--primary__background_focus:    var();
-    --button--primary__background_disabled: var();
-    --button--primary__background_pressed:  var();
-    --button--primary__background_loading:  var();
+//********************************************************************
+//*
+//*     HTML CODE:
+//*         <button class=""><div class=""></div></button>
+//*
+//*     BUTTON CLASSES:
+//*         Main Class:
+//*             - button
+//*
+//*         Color styles:
+//*             - button__inverted - invert colors
+//*
+//*         Button type:
+//*             - button__fill
+//*             - button__outline
+//*             - button__text
+//*             - button__icon
+//*
+//*         Button size:
+//*             - button__big
+//*             - button__medium
+//*             - button__small
+//*
+//*     ICON CLASSES:
+//*             - icon
+//*             - icon__left
+//*             - icon__right
+//*
+//********************************************************************/
 
-    --button--secondary__fontcolor_normal:    var();
-    --button--secondary__background_normal:   var();
-    --button--secondary__background_hover:    var();
-    --button--secondary__background_active:   var();
-    --button--secondary__background_focus:    var();
-    --button--secondary__background_disabled: var();
-    --button--secondary__background_pressed:  var();
-    --button--secondary__background_loading:  var();
+// TODO: Add inverted colors button
 
-    --button--animation__duration: var(--time-2);
-    --button--animation__time-type: var(--animation-3);
-    --button--animation__delay: var(--time-1);
+// >----------------------------------------------------------------<
+// >                             IMPORT                             <
+// >----------------------------------------------------------------<
 
-    --button--padding__vertical: var(--spacing-1);
-    --button--padding__horizontal: var(--spacing-2);
-}
+// Edit this file for change style
+@use "configs/cf-buttons" as *;
 
-.button {
-    padding: var(--button--padding__vertical) var(--button--padding__horizontal);
-    user-select: none;
-    border-radius: 8px;
-    height: 48px;
-    min-width: 48px;
 
-    // &__primary {
-        color: var(--button--primary__font-color_normal);
-        background-color: var(--button--primary__background_normal);
-        @media (hover: hover) {
-            &:hover {
+// >----------------------------------------------------------------<
+// >                            MIXIN                               <
+// >----------------------------------------------------------------<
+
+// This mixin create button style
+@mixin setStyle (   $font__color, $font__color_hover,
+                    $font__color_pressed, $font__color_disabled,
+
+                    $bg__color, $bg__color_hover,
+                    $bg__color_pressed, $bg__color_disabled,
+
+                    $border__color, $border__color_hover,
+                    $border__color_pressed, $border__color_disabled,
+
+                    $icon__color, $icon__color_hover,
+                    $icon__color_pressed,  $icon__color_disabled,
+
+                    $border__width  ) {
+
+
+    background: $bg__color;
+    border-width: $border__width;
+    border-color: $border__color;
+
+    & .label {
+        color: $font__color;
+    }
+
+    & .icon{
+        background-color: $icon__color;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: $font__color_hover;
+            transition: all var(--button--animation__duration) var(--button--animation__time-type);
+            background: $bg__color_hover;
+            border-color: $border__color_hover;
+
+            & .label {
+                color: $font__color_hover;
                 transition: all var(--button--animation__duration) var(--button--animation__time-type);
-                background-color: var(--button--primary__background_hover);
+            }
+
+            & .icon {
+                background-color: $icon__color_hover;
+                mask-image: $icon__url_hover;
+                transition: all var(--button--animation__duration) var(--button--animation__time-type);
             }
         }
+    }
 
-    // &__secondary {
+    &:active {
+        color: $font__color_pressed;
+        background: $bg__color_pressed;
+        border-color: $border__color_pressed;
+        transition: 0s;
 
-    // }
+        & .label {
+            color: $font__color_pressed;
+            transition: 0s;
+        }
+
+        & .icon {
+            background-color: $icon__color_pressed;
+            transition: 0s;
+        }
+    }
+
+    &:disabled, &[disabled] {
+        color: $font__color_disabled;
+        background: $bg__color_disabled;
+        border-color: $border__color_disabled;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        & .label {
+            color: $font__color_disabled;
+        }
+
+        & .icon {
+            // cursor: not-allowed;
+            // pointer-events: none;
+            background-color: $icon__color_disabled;
+        }
+    }
+}
+
+
+
+
+// >----------------------------------------------------------------<
+// >                             CREATE                             <
+// >----------------------------------------------------------------<
+
+.button {
+    display: flex;
+    // display: block;
+    justify-content: center;
+    align-items: center;
+
+    // vertical-align: text-top;
+
+    border-style: solid;
+
+    font-size: var(--button--font-size);
+
+    // width: calc();
+    height: var(--button--size);
+    padding: 0 var(--button--padding);
+    border-radius: var(--button--border-radius);
+
+    user-select: none;
+
+    .label {
+        font-family: var(--button--font-family);
+        line-height: var(--button--line-height);
+        font-weight: var(--button--font-weight);
+    }
+
+    // ^------------------------ Button Size ------------------------
+
+    &__big {
+        font-size: var(--button--font-size_big);
+    }
+
+    &__medium {
+        font-size: var(--button--font-size_medium);
+    }
+
+    &__small {
+        font-size: var(--button--font-size_small);
+    }
+
+
+    // ^------------------------ Button Fill Style ------------------------
+
+    &__fill {
+        @include setStyle   (   var(--button-fill--font__color), var(--button-fill--font__color_hover),
+                                var(--button-fill--font__color_pressed), var(--button-fill--font__color_disabled),
+
+                                var(--button-fill--bg__color), var(--button-fill--bg__color_hover),
+                                var(--button-fill--bg__color_pressed), var(--button-fill--bg__color_disabled),
+
+                                var(--button-fill--border__color), var(--button-fill--border__color_hover),
+                                var(--button-fill--border__color_pressed), var(--button-fill--border__color_disabled),
+
+                                var(--button-fill--icon__color), var(--button-fill--icon__color_hover),
+                                var(--button-fill--icon__color_pressed), var(--button-fill--icon__color_disabled),
+
+                                var(--button-fill--border__width)
+                            );
+    }
+
+
+
+    // ^------------------------ Button Outline Style ------------------------
+
+    &__outline {
+        @include setStyle   (   var(--button-outline--font__color), var(--button-outline--font__color_hover),
+                                var(--button-outline--font__color_pressed), var(--button-outline--font__color_disabled),
+
+                                var(--button-outline--bg__color), var(--button-outline--bg__color_hover),
+                                var(--button-outline--bg__color_pressed), var(--button-outline--bg__color_disabled),
+
+                                var(--button-outline--border__color), var(--button-outline--border__color_hover),
+                                var(--button-outline--border__color_pressed), var(--button-outline--border__color_disabled),
+
+                                var(--button-outline--icon__color), var(--button-outline--icon__color_hover),
+                                var(--button-outline--icon__color_pressed), var(--button-outline--icon__color_disabled),
+
+                                var(--button-outline--border__width)
+                            );
+    }
+
+
+
+    // ^------------------------ Button Text Style ------------------------
+
+    &__text {
+        @include setStyle   (   var(--button-text--font__color), var(--button-text--font__color_hover),
+                                var(--button-text--font__color_pressed), var(--button-text--font__color_disabled),
+
+                                var(--button-text--bg__color), var(--button-text--bg__color_hover),
+                                var(--button-text--bg__color_pressed), var(--button-text--bg__color_disabled),
+
+                                var(--button-text--border__color), var(--button-text--border__color_hover),
+                                var(--button-text--border__color_pressed), var(--button-text--border__color_disabled),
+
+                                var(--button-text--icon__color), var(--button-text--icon__color_hover),
+                                var(--button-text--icon__color_pressed), var(--button-text--icon__color_disabled),
+
+                                var(--button-text--border__width)
+                            );
+        .label {
+            text-decoration: underline;
+            text-decoration-thickness: var(--button-text--border__width);
+        }
+
+    }
+
+
+
+    // ^------------------------ Icons Style ------------------------
+
+    .icon {
+        mask-image: $icon__url;
+        mask-repeat: no-repeat;
+
+        width: var(--icon--size);
+        height: var(--icon--size);
+        mask-size: cover;
+
+        &__left {
+            margin-right: var(--icon--margin);
+        }
+
+        &__right {
+            margin-left: var(--icon--margin);
+        }
+    }
+
+
+
+    // ^------------------------ Button Icon Style ------------------------
+    // This block is after icon style block because it rewrite some styles
+
+    &__icon {
+        @include setStyle   (   var(--button-icon--font__color), var(--button-icon--font__color_hover),
+                                var(--button-icon--font__color_pressed), var(--button-icon--font__color_disabled),
+
+                                var(--button-icon--bg__color), var(--button-icon--bg__color_hover),
+                                var(--button-icon--bg__color_pressed), var(--button-icon--bg__color_disabled),
+
+                                var(--button-icon--border__color), var(--button-icon--border__color_hover),
+                                var(--button-icon--border__color_pressed), var(--button-icon--border__color_disabled),
+
+                                var(--button-icon--icon__color), var(--button-icon--icon__color_hover),
+                                var(--button-icon--icon__color_pressed), var(--button-icon--icon__color_disabled),
+
+                                var(--button-icon--border__width)
+                            );
+        padding: 0 0;
+        &.button {
+            width: var(--button--size);
+        }
+
+    }
 }

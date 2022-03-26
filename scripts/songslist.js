@@ -111,7 +111,7 @@ async function getGoogleSheetsData(url) {
 const createPage = (data) => {
     const listName = document.querySelector('.list-name');
     const button = new Button({
-        style: ['fill', 'big'],
+        style: ['icon', 'big'],
     });
 
     const alertTryLater = () => {
