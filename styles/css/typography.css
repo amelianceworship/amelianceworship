@@ -35,6 +35,10 @@
   --font__font-size_h4: 24px;
   --font__font-weight_h4: var(--font-weight__bold);
   --font__line-height_h4: 150%;
+  --font__font-family_h6: var(--font-family__secondary);
+  --font__font-size_h6: 16px;
+  --font__font-weight_h6: var(--font-weight__bold);
+  --font__line-height_h6: 150%;
   --font__font-family_p1: var(--font-family__secondary);
   --font__font-size_p1: 16px;
   --font__font-weight_p1: var(--font-weight__regular);
@@ -75,6 +79,13 @@
   font-size: var(--font__font-size_h4);
   line-height: var(--font__line-height_h4);
   font-weight: var(--font__font-weight_h4);
+}
+
+.h6 {
+  font-family: var(--font__font-family_h6);
+  font-size: var(--font__font-size_h6);
+  line-height: var(--font__line-height_h6);
+  font-weight: var(--font__font-weight_h6);
 }
 
 .p1 {

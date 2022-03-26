@@ -55,6 +55,14 @@
   color: var(--color__h4_inverse);
 }
 
+.h6 {
+  color: var(--color__h6);
+  opacity: 30%;
+}
+.h6.inverse {
+  color: var(--color__h6_inverse);
+}
+
 .p1 {
   color: var(--color__p1);
 }

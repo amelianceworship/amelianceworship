@@ -109,10 +109,10 @@
     // --font__font-weight_h5: var(--font-weight__regular);
     // --font__line-height_h5: 150%;
 
-    // --font__font-family_h8: var(--font-family__secondary);   // header 6
-    // --font__font-size_h6: 16px;
-    // --font__font-weight_h6: var(--font-weight__bold);
-    // --font__line-height_h8: 150%;
+    --font__font-family_h6: var(--font-family__secondary);   // header 6
+    --font__font-size_h6: 16px;
+    --font__font-weight_h6: var(--font-weight__bold);
+    --font__line-height_h6: 150%;
 
     // --font__font-family-s1: var(--font-family__secondary);   // subtitle 1
     // --font__font-size_s1: ;
@@ -192,12 +192,12 @@
 //                         var(--font__font-weight_h5));
 // }
 
-// .h6 {
-//     @include setFont(   var(--font__font-family_h8),
-//                         var(--font__font-size_h6),
-//                         var(--font__line-height_h8),
-//                         var(--font__font-weight_h6));
-// }
+.h6 {
+    @include setFont(   var(--font__font-family_h6),
+                        var(--font__font-size_h6),
+                        var(--font__line-height_h6),
+                        var(--font__font-weight_h6));
+}
 
 // .s1 {
 //     @include setFont(   var(--font__font-family_p1),

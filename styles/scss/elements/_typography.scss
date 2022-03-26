@@ -64,12 +64,13 @@
 //     }
 // }
 
-// .h6 {
-//     color: var(--color__h6);
-//     &.inverse {
-//         color: var(--color__h6_inverse);
-//     }
-// }
+.h6 {
+    color: var(--color__h6);
+    opacity: 30%;
+    &.inverse {
+        color: var(--color__h6_inverse);
+    }
+}
 
 // .s1 {
 //     color: var(--color__s1);

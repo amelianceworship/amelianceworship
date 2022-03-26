@@ -2,9 +2,8 @@
 import {
     msg as Msg,
     createHTMLElem,
-    // Button
+    Button
 } from './modules/asm.js';
-import { Button } from './modules/asm.js';
 // import * as asm from 'ASM_js-unctions.js';
 
 
@@ -142,7 +141,7 @@ const createPage = (data) => {
         // createHTMLElem(listLetters, 'pre', ['p1', 'list-letters__letter'], letter);
         // const char  = letter || ' ';
         const preElem = createHTMLElem(listLetters, 'pre', ['pre']);
-        createHTMLElem(preElem, 'p', ['p1', 'list-letters__letter'], letter + '\t');
+        createHTMLElem(preElem, 'h6', ['h6', 'list-letters__letter'], letter + '    ');
     }
 
     for (const song of songs) {
