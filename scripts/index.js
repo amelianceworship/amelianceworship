@@ -10,6 +10,7 @@ import {
     popup,
     createHTMLElem,
     createHTMLElemPrep,
+    Button
 } from './modules/asm.js';
 
 import * as asm from './modules/asm.js';
@@ -50,6 +51,14 @@ songList.sort();
 // >----------------------------------------------------------------<
 // >                            SETTINGS                            <
 // >----------------------------------------------------------------<
+
+const button = new Button({
+    style: ['fill', 'big'],
+});
+const buttonIcon = new Button({
+    style: ['icon', 'big'],
+});
+
 
 // ^------------------------ init ------------------------
 
@@ -172,7 +181,8 @@ const generatePage = (textData) => {
         if (isHeader && filePart === 'header') {
             const capo = createHTMLElem(info, 'div', ['song-info__capo']);
 
-            const iconCapo = createHTMLElem(capo, 'button', ['icon', 'icon__capo']);
+            const iconCapo = buttonIcon.create(capo, ['icon__capo']);
+
             iconCapo.style.webkitMaskImage = 'url("./assets/svg/capo.svg")';
             iconCapo.style.maskImage = 'url("./assets/svg/capo.svg")';
 
@@ -511,10 +521,11 @@ const showFullscreen = () => {
       }
     }
 };
-const iconSettings = createHTMLElem(controls, 'button', ['icon', 'icon__settings']);
+
+const iconSettings = buttonIcon.create(controls, ['icon__settings'], '--', showFullscreen );
 iconSettings.style.webkitMaskImage = 'url("./assets/svg/maximize.svg")';
 iconSettings.style.maskImage = 'url("./assets/svg/maximize.svg")';
-iconSettings.addEventListener('click', showFullscreen);
+
 
 
 
@@ -523,16 +534,18 @@ iconSettings.addEventListener('click', showFullscreen);
 
 const transpose = createHTMLElem(controls, 'div', ['transpose']);
 
-const transposeDown = createHTMLElem(transpose, 'button', ['button', 'transpose__down'], '-'); // button -
-transposeDown.addEventListener('click', setTransposeKeyDown);
+// const transposeDown = createHTMLElem(transpose, 'button', ['button', 'transpose__down'], '-'); // button -
+button.create(transpose, ['transpose__down'], '-', setTransposeKeyDown);
+
+
 
 const transposeNumber = createHTMLElem(transpose, 'p', ['p1', 'transpose__number'], '0'); // display number
 transposeNumber.addEventListener('click', () => {
     popup.create('Скинути?', 'Ви хочете скинути транспонування аккордів? (поки не працює)', 'Так/Відміна');
 });
 
-const transposeUp = createHTMLElem(transpose, 'button', ['button', 'transpose__up'], '+'); // button +
-transposeUp.addEventListener('click', setTransposeKeyUp);
+
+button.create(transpose, ['transpose__up'], '+', setTransposeKeyUp);
 
 
 
@@ -554,12 +567,13 @@ const hideSongList = () => {
     iconList.addEventListener('click', showSongsList);
 };
 
-const iconList = createHTMLElem(controls, 'button', ['icon', 'icon__list']);
+// const iconList = createHTMLElem(controls, 'button', ['icon', 'icon__list']);
+
+const iconList = buttonIcon.create(controls, 'transpose__down', '', showSongsList);
 
 iconList.style.webkitMaskImage = 'url("./assets/svg/list.svg")';
 iconList.style.maskImage = 'url("./assets/svg/list.svg")';
 iconList.style.zIndex = 'var(--z-index-5)';
-iconList.addEventListener('click', showSongsList);
 
 
 

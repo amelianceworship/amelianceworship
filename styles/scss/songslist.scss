@@ -91,13 +91,14 @@ html {
 
 .header {
     // min-height: var(--size-h__block-container-header_desktop);
-    background-color: var(--color-0-1);
+    background-color: var(--color-0-0);
     & .container {
         max-width: var(--size-w__block-container_desktop);
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
 }
 
@@ -109,18 +110,28 @@ html {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .list__song-item {
+    padding: 16px 0;
+    .list__sheet-title {
+        padding: 8px 24px;
+        border: 1px solid var(--color-2-3);
+        border-radius: 1000px;
         font-size: 48px;
         height: 100%;
-        padding-top: 24px;
-        padding-bottom: 24px;
-        font-family: var(--font-family__secondary);
+        font-family: var(--font-family__primary);
         @media (max-width: 920px) {
 
-            font-size: 22px;
+            font-size: 18px;
         }
     }
 }
+
+// .divider {
+//     display: flex;
+//     height: 2px;
+//     width: 100%;
+//     background-color: var(--color-0-3);
+//     // background-color: red;
+// }
 
 
 
@@ -187,10 +198,6 @@ html {
         height: 100%;
     }
 }
-
-
-
-
 
 
 

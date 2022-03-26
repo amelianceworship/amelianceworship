@@ -138,7 +138,7 @@ html {
 }
 
 .header {
-  background-color: var(--color-0-1);
+  background-color: var(--color-0-0);
 }
 .header .container {
   max-width: var(--size-w__block-container_desktop);
@@ -152,6 +152,10 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .list-name {
@@ -165,17 +169,19 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 16px 0;
 }
-.list-name .list__song-item {
+.list-name .list__sheet-title {
+  padding: 8px 24px;
+  border: 1px solid var(--color-2-3);
+  border-radius: 1000px;
   font-size: 48px;
   height: 100%;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  font-family: var(--font-family__secondary);
+  font-family: var(--font-family__primary);
 }
 @media (max-width: 920px) {
-  .list-name .list__song-item {
-    font-size: 22px;
+  .list-name .list__sheet-title {
+    font-size: 18px;
   }
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 import {createHTMLElem} from './createHTMLElem.js';
+import { msg } from './msg.js';
 
 
 
@@ -30,7 +31,7 @@ class Button {
         this.action   = options.action  || function() { console.log(`Click ${options.label}`); };
     }
 
-    create(btnLabel, btnUnicClass, btnAction, btnParent, btnStyle) {
+    create(btnParent, btnUnicClass, btnLabel, btnAction, btnStyle) {
         const label         = btnLabel       || this.label;
         const classes       = btnUnicClass   || this.classes;
         const action        = btnAction      || this.action;

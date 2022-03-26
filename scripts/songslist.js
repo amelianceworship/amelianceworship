@@ -11,7 +11,14 @@ import {
 // const sheetTitle = 'Ameliance Worship API';
 
 const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
-const sheetTitle = '✅Загальний Список';
+const sheetTitle = '✅ Загальний Список';
+const sheetTitles = [
+    '✅ Загальний Список',
+    '⏳ Вивчити/Зробити',
+    '🌠 Різдво',
+    '🙌🏻 Пасха',
+    '♻️ Відкласти на час',
+];
 const sheetRange = '';
 const url = 'https://docs.google.com/spreadsheets/d/' + sheetID + '/gviz/tq?tqx=out:json&sheet=' + sheetTitle + '&range=' + sheetRange;
 // const url = 'https://docs.google.com/spreadsheets/d/' + sheetID + '/gviz/tq?tqx=out:json&sheet=' + sheetTitle + '&range=' + sheetRange;
@@ -22,8 +29,8 @@ const url = 'https://docs.google.com/spreadsheets/d/' + sheetID + '/gviz/tq?tqx=
 // https://docs.google.com/spreadsheets/d/1R7BRDqcHCRsU1_IIMfyArQ4qjosn64WA5gSO1_3Rv6I/edit#gid=0
 
 
-async function getGoogleSheetsData(url) {
-
+async function getGoogleSheetsData(sheetID, sheetTitle, sheetRange) {
+    const url = 'https://docs.google.com/spreadsheets/d/' + sheetID + '/gviz/tq?tqx=out:json&sheet=' + sheetTitle + '&range=' + sheetRange;
     const res = await fetch(url);
     const textData = await res.text();
 
@@ -94,7 +101,7 @@ async function getGoogleSheetsData(url) {
 
     const data = getTableOnlyRows(dataJson);
 
-    createPage(data);
+    createPage(data, sheetTitle);
 
     localStorage.setItem('songList', JSON.stringify(data)); // write
     //     let receivedSettings = JSON.parse(localStorage.getItem('settings')); // read
@@ -108,59 +115,90 @@ async function getGoogleSheetsData(url) {
 // >                                                              <
 // >----------------------------------------------------------------<
 
-const createPage = (data) => {
+const createPage = (data, sheetTitle) => {
+    Msg(data)
+    const main = document.querySelector('.main .container');
+    const listTest = document.querySelector('.list');
+    const listSheetTitle = document.querySelector('.list__sheet-title');
+    const listNameLeft = document.querySelector('.list-name__left');
+    const listNameRight = document.querySelector('.list-name__right');
+    if (listTest) listTest.remove();
+    if (listSheetTitle) listSheetTitle.remove();
+    if (listNameLeft) listNameLeft.remove();
+    if (listNameRight) listNameRight.remove();
+
+    const list = createHTMLElem(main, 'div', ['list']);
+
+
     const listName = document.querySelector('.list-name');
     const button = new Button({
         style: ['icon', 'big'],
     });
 
     const alertTryLater = () => {
-        alert('Ця функція знаходиться в розробці, спробуйте пізніше');
+        alert('Сорі, ще не робить, спробуйте пізніше');
     };
-    button.create('◄', 'list-name__left', alertTryLater, listName);
-    createHTMLElem(listName, 'h1', ['h1', 'list__song-item'], 'ЗАГАЛЬНИЙ СПИСОК');
-    button.create('►', 'list-name__right', alertTryLater, listName);
 
-    // <p class="p1 list-name__left">←</p>
-    // <h4 class="h4 list-name__title">Загальний Список</h4>
-    // <p class="p1 list-name__right">→</p>
-    // create(btnLabel, btnUnicClass, btnAction, btnParent, btnStyle)
-    const headerLetters = data[0];
-    const songs = data[1];
 
-    const main = document.querySelector('.main .container');
-    const list = createHTMLElem(main, 'div', ['list']);
+    button.create(listName, ['list-name__left'], '◄', selectPrevList);
+    createHTMLElem(listName, 'h1', ['h1', 'list__sheet-title'], sheetTitle);
+    button.create(listName, ['list-name__right'], '►', selectNextList);
 
-    // const listLetters = document.querySelector('.list-letters');
-    // const listLetters = createHTMLElem(list, 'div', ['list-letters']);
+    const songs = data[data.length-1];
 
-    // for (const letter of headerLetters) {
-    //     // let songItem = createHTMLElem(listLetters, 'div', ['list__song-item']);
 
-    //     // createHTMLElem(listLetters, 'pre', ['p1', 'list-letters__letter'], letter);
-    //     // const char  = letter || ' ';
-    //     // const preElem = createHTMLElem(listLetters, 'pre', ['pre']);
-    //     createHTMLElem(listLetters, 'h6', ['h6', 'list-letters__letter'], letter + '    ');
-    // }
-
-    // for (const song of songs) {
-    //     // const preElem = createHTMLElem(listTitles, 'pre', ['pre']);
-    //     createHTMLElem(listTitles, 'p', ['p1', 'list__song-title'], song);
-    // }
-
+    let lastLetter = '';
     for (let i = 0; i < songs.length; i++) {
+        const song = songs[i];
 
-        const letter = headerLetters[i];
-        if (letter) {
-            createHTMLElem(list, 'h3', ['h3', 'list-letters__letter'], letter);
+        if (lastLetter !== song[0]) {
+            createHTMLElem(list, 'h3', ['h3', 'list-letters__letter'], song[0]);
+            lastLetter = song[0];
         }
 
-        const song = songs[i];
         createHTMLElem(list, 'p', ['p1', 'list__song-title'], song);
     }
 
 };
 
+const selectPrevList = () => {
+    const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
+    const sheetRange = '';
+    const sheetTitles = [
+        '✅ Загальний Список',
+        '⏳ Вивчити/Зробити',
+        '🌠 Різдво',
+        '🙌🏻 Пасха',
+        '♻️ Відкласти на час'
+    ];
+    const listSheetTitle = document.querySelector('.list__sheet-title');
+    const title =  listSheetTitle.innerText;
+    const currIndex = sheetTitles.indexOf(title);
+    let index = currIndex-1;
+    if (index < 0) index = sheetTitles.length - 1;
+
+
+    getGoogleSheetsData(sheetID, sheetTitles[index], sheetRange);
+};
+const selectNextList = () => {
+    const sheetID = '16wsDcFtQ7J1nYrlSkEB8KgLp_XpyCdwH-SIi0fuqapc'; // woody-songlist
+    const sheetRange = '';
+    const sheetTitles = [
+        '✅Загальний Список',
+        '⏳Вивчити/Зробити',
+        '🌠Різдво',
+        '🙌🏻Пасха',
+        '♻️Відкласти на час'
+    ];
+    const listSheetTitle = document.querySelector('.list__sheet-title');
+    const title =  listSheetTitle.innerText;
+    const currIndex = sheetTitles.indexOf(title);
+    let index = currIndex+1;
+    if (index > sheetTitles.length - 1) index = 0;
+
+
+    getGoogleSheetsData(sheetID, sheetTitles[index], sheetRange);
+};
 
 
 
@@ -168,4 +206,4 @@ const createPage = (data) => {
 // >                                                              <
 // >----------------------------------------------------------------<
 
-getGoogleSheetsData(url);
+getGoogleSheetsData(sheetID, sheetTitle, sheetRange);

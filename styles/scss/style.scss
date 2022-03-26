@@ -48,9 +48,11 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 1px; // reset pixels for em / rem unit
 }
 
 .pre__chords {
+    font-family: var(--font-family__tertiary);
     tab-size: 8; /* Установит размер таба в 4 пробела */
 }
 
@@ -109,7 +111,7 @@ html {
     // height: var(--size-h__block-container-header_desktop);
     padding-top: var(--spacing-4); // 24
     padding-bottom: var(--spacing-4); // 24
-    background-color: var(--color-0-1);
+    background-color: var(--color-0-0);
     & .container {
         display: flex;
         justify-content: center;
@@ -127,7 +129,7 @@ html {
 
 .main {
     height: var(--size-h__block-container-main_desktop);
-    background-color: var(--color-0-1);
+    background-color: var(--color-0-0);
     & .container {
         display: flex;
         justify-content: center;
@@ -148,6 +150,7 @@ html {
 }
 
 .song-chords {
+
     // height: 0px;
     padding-bottom: var(--spacing-5); // 36
     display: flex;
@@ -178,7 +181,7 @@ html {
 
 .footer {
     // height: var(--size-h__block-container-footer_desktop);
-    background-color: var(--color-0-1);
+    background-color: var(--color-0-0);
     padding-bottom: var(--spacing-4); // 24
     & .container {
         display: flex;
@@ -205,7 +208,7 @@ html {
         padding-left: var(--spacing-3); // 16
         padding-right: var(--spacing-3); // 16
         border-radius: var(--radius-2);
-        border: solid var(--border-1) var(--color-0-4);
+        border: solid var(--border-1) var(--color-0-3);
     }
     &__capo {
         height: var(--spacing-6); // 48
@@ -214,7 +217,7 @@ html {
         align-items: center;
         padding-right: var(--spacing-3); // 16
         border-radius: var(--radius-2);
-        border: solid var(--border-1) var(--color-0-4);
+        border: solid var(--border-1) var(--color-0-3);
     }
 }
 
@@ -242,6 +245,7 @@ html {
         cursor: pointer;
     }
 }
+
 
 mark {
     background-color: darkgrey;
