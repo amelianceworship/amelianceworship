@@ -535,7 +535,7 @@ iconSettings.style.maskImage = 'url("./assets/svg/maximize.svg")';
 const transpose = createHTMLElem(controls, 'div', ['transpose']);
 
 // const transposeDown = createHTMLElem(transpose, 'button', ['button', 'transpose__down'], '-'); // button -
-button.create(transpose, ['transpose__down'], '-', setTransposeKeyDown);
+button.create(transpose, ['transpose__down'], '-', setTransposeKeyDown, ['small', 'fill']); //! why do not work without one of style parameter
 
 
 
@@ -545,7 +545,7 @@ transposeNumber.addEventListener('click', () => {
 });
 
 
-button.create(transpose, ['transpose__up'], '+', setTransposeKeyUp);
+button.create(transpose, ['transpose__up'], '+', setTransposeKeyUp,  ['small', 'fill']); //! why do not work without one of style parameter
 
 
 
