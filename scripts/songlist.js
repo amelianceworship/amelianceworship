@@ -38,8 +38,8 @@ assets/md/Христе Ти живеш в душі моїй.md
 assets/md/Цар воскреслий.md
 assets/md/Що вину мою простить.md
 assets/md/Я вірю в безсмертя душі (capo=4).md
-assets/md/Я до Тебе молюся.md
 assets/md/Я дякую за плин мого життя.md
+assets/md/Я за Тебе молюсь.md
 assets/md/Я хочу исполнить волю Твою (capo=3).md
 assets/md/Я хочу исполнить волю Твою.md
 assets/md/Як сум і мука мою душу огорне (capo=1).md
